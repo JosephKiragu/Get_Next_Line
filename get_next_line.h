@@ -11,5 +11,7 @@
 
 char    *get_next_line(int fd);
 char    *get_line(char *src, int fd);
+char    *ft_read_line (char *src);
+char    *ft_save(char *src);
 
 #endif

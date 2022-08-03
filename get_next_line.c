@@ -44,6 +44,7 @@ char    *get_next_line(int fd)
     if (next_line == NULL)
         return (NULL);
     line = ft_read_line(next_line);
+    next_line = ft_save(next_line);
     
 
 }
