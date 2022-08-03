@@ -1,6 +1,5 @@
 # include "get_next_line.h"
 
-
 char    *get_line(char *src, int fd)
 {
     char *buffer;
