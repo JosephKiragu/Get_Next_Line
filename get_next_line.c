@@ -44,6 +44,11 @@ char    *get_next_line(int fd)
         return (NULL);
     line = ft_read_line(next_line);
     next_line = ft_save(next_line);
-    
-
+    if (line[0] == '\0')
+    {
+        free(next_line);
+        free(line);
+        return (NULL);
+    }
+    return (line);
 }
