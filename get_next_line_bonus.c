@@ -1,4 +1,4 @@
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdio.h>
 
 char	*get_all_lines(char *src, int fd)
@@ -28,22 +28,20 @@ char	*get_all_lines(char *src, int fd)
 	return (src);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
-	static char	*next_line;
 	char		*current_line;
+	static char	*next_line[MAX_LEN];
 
 	current_line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	next_line = get_all_lines(next_line, fd);
-	if (next_line == NULL)
 		return (NULL);
-	current_line = read_current_line(next_line);
-	next_line = save_all_lines(next_line);
+	next_line[fd] = get_all_lines(next_line[fd], fd);
+	current_line = read_current_line(next_line[fd]);
+	next_line[fd] = save_all_lines(next_line[fd]);
 	if (current_line[0] == '\0')
 	{
-		free(next_line);
+		free(next_line[fd]);
 		free(current_line);
 		return (NULL);
 	}

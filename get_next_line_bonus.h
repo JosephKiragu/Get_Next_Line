@@ -1,16 +1,20 @@
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
+# endif
+
+# ifndef MAX_LEN
+#  define MAX_LEN 1024
 # endif
 
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
 
-//main functions
-char	*get_next_line(int fd);
+// Main functions
+char	*get_next_line_bonus(int fd);
 char	*get_all_lines(char *str, int fd);
 char	*save_all_lines(char *str);
 char	*read_current_line(char *str);
